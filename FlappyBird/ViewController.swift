@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let skview = self.view as! SKView
+        
+        skview.showsFPS = true
+        
+        skview.showsNodeCount = true
+        
+        let scene = GameScene(size:skview.frame.size)
+        
+        skview.presentScene(scene)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    //ステータスバーを消す
+    override var prefersStatusBarHidden:Bool {
+        get {
+            return true
+        }
+    }
 }
+
 
